@@ -4,11 +4,10 @@ import { Ionicons } from "@expo/vector-icons";
 interface HeaderProps {
   title: string;
   onBack?: () => void;
-  onHistory?: () => void;
-  showHistory?: boolean;
+  rightIcon?: React.ReactNode;
 }
 
-export function Header({ title, onBack, onHistory, showHistory }: HeaderProps) {
+export function Header({ title, onBack, rightIcon }: HeaderProps) {
   return (
     <View style={styles.container}>
       <View style={styles.leftContainer}>
@@ -21,13 +20,7 @@ export function Header({ title, onBack, onHistory, showHistory }: HeaderProps) {
 
       <Text style={styles.title}>{title}</Text>
 
-      <View style={styles.rightContainer}>
-        {showHistory && (
-          <TouchableOpacity style={styles.historyButton} onPress={onHistory}>
-            <Ionicons name="time-outline" size={24} color="black" />
-          </TouchableOpacity>
-        )}
-      </View>
+      <View style={styles.rightContainer}>{rightIcon}</View>
     </View>
   );
 }
@@ -47,15 +40,10 @@ const styles = StyleSheet.create({
   rightContainer: {
     width: 56,
     height: 56,
-  },
-  backButton: {
-    width: 56,
-    height: 56,
-    padding: 16,
     justifyContent: "center",
     alignItems: "center",
   },
-  historyButton: {
+  backButton: {
     width: 56,
     height: 56,
     padding: 16,

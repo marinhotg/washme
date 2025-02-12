@@ -1,7 +1,8 @@
-import { View, ScrollView, StyleSheet } from "react-native";
+import { View, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
 import { Header } from "../../components/header";
 import { ReservationCard } from "../../components/reservation-card";
 import { BottomMenu } from "../../components/bottom-menu";
+import { Ionicons } from "@expo/vector-icons";
 
 export function Reservations() {
   const reservations = [
@@ -26,8 +27,11 @@ export function Reservations() {
       <Header
         title="Minhas reservas"
         onBack={() => {}}
-        showHistory
-        onHistory={() => console.log("Acessar histórico")}
+        rightIcon={
+          <TouchableOpacity onPress={() => console.log("Acessar histórico")}>
+            <Ionicons name="time-outline" size={24} color="black" />
+          </TouchableOpacity>
+        }
       />
 
       <ScrollView style={styles.content}>
