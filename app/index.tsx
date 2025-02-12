@@ -1,5 +1,5 @@
-import { LaundryRegistration } from "../src/screens/laundry-registration";
+import { History } from "../src/screens/history";
 
 export default function Index() {
-  return <LaundryRegistration />;
+  return <History />;
 }
