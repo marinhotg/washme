@@ -1,13 +1,14 @@
 import { TextInput, View, Text, StyleSheet } from 'react-native';
 
 interface InputProps {
-	label?: string;
-	placeholder?: string;
-	secureTextEntry?: boolean;
-	topLabel?: string;
- }
- 
- export function Input({ label, placeholder, secureTextEntry, topLabel }: InputProps) {
+  label?: string;
+  placeholder?: string;
+  secureTextEntry?: boolean;
+  topLabel?: string;
+  editable?: boolean;
+}
+
+export function Input({ label, placeholder, secureTextEntry, topLabel, editable = true }: InputProps) {
   return (
     <View style={styles.container}>
       {topLabel && (
@@ -16,10 +17,14 @@ interface InputProps {
         </View>
       )}
       <TextInput 
-        style={styles.input}
-        placeholder={placeholder || label}
+        style={[
+          styles.input,
+          !editable && styles.inputDisabled
+        ]}
+        placeholder={placeholder}
         placeholderTextColor="#64748B"
         secureTextEntry={secureTextEntry}
+        editable={editable}
       />
     </View>
   );
@@ -27,7 +32,7 @@ interface InputProps {
  
  const styles = StyleSheet.create({
 	container: {
-		width: 343,
+		width: '100%',
 		gap: 8,
 	},
 	topLabelContainer: {
@@ -52,5 +57,8 @@ interface InputProps {
 		fontSize: 16,
 		color: '#64748B',
 		lineHeight: 24,
-	}
+	},
+	inputDisabled: {
+    backgroundColor: '#F1F5F9',
+  }
  });

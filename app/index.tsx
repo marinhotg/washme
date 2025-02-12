@@ -1,5 +1,5 @@
-import { AccessLaundry } from "../src/screens/access-laundry";
+import { LaundryRegistration } from "../src/screens/laundry-registration";
 
 export default function Index() {
-  return <AccessLaundry />;
+  return <LaundryRegistration />;
 }
