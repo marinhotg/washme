@@ -7,7 +7,10 @@ interface LinkProps {
 
 export function Link({ title, onPress }: LinkProps) {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity 
+      style={styles.container}
+      onPress={onPress}
+    >
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
@@ -15,18 +18,14 @@ export function Link({ title, onPress }: LinkProps) {
 
 const styles = StyleSheet.create({
   container: {
-    width: 343,
-    height: 56,
-    paddingHorizontal: 24,
-    paddingVertical: 16,
-    justifyContent: 'center',
+    width: '100%',
     alignItems: 'center',
+    paddingVertical: 8
   },
   text: {
     color: '#276672',
     fontSize: 16,
     fontWeight: '700',
     textDecorationLine: 'underline',
-    lineHeight: 24,
   }
 });

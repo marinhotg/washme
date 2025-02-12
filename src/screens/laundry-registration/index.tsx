@@ -5,6 +5,7 @@ import { Button } from "../../components/button";
 import { Header } from "../../components/header";
 import { Input } from "../../components/input";
 import { Select } from "../../components/select";
+import { TermsText } from "../../components/terms-text";
 
 export function LaundryRegistration() {
   const [plan, setPlan] = useState("");
@@ -95,10 +96,9 @@ export function LaundryRegistration() {
             onChange={setDryerDuration}
           />
 
-          <Text style={styles.terms}>
-            Ao selecionar Concordar e continuar, concordo com os{" "}
-            <Text style={styles.termsLink}>Termos de Serviço</Text> do WashMe.
-          </Text>
+          <TermsText
+            onPressTerms={() => console.log("Abrir termos de serviço")}
+          />
 
           <Button title="Concordar e continuar" onPress={() => {}} />
         </View>

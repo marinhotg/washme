@@ -7,18 +7,19 @@ interface ButtonProps {
 
 export function Button({ title, onPress }: ButtonProps) {
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
+    <TouchableOpacity 
+      style={styles.container}
+      onPress={onPress}
+    >
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  button: {
-    width: 343,
+  container: {
+    width: '100%',
     height: 56,
-    paddingHorizontal: 24,
-    paddingVertical: 16,
     backgroundColor: '#276672',
     borderRadius: 8,
     justifyContent: 'center',
@@ -28,6 +29,5 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '700',
-    lineHeight: 24,
   }
 });
