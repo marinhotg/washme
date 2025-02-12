@@ -8,7 +8,8 @@ import { WashingGuide } from "../src/screens/washing-guide";
 import { Help } from "../src/screens/help";
 import { Settings } from "../src/screens/settings";
 import { Users } from "../src/screens/users";
+import { AvailableMachines } from "../src/screens/availabre-machines";
 
 export default function Index() {
-  return <Users />;
+  return <AvailableMachines />;
 }
