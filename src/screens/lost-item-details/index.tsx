@@ -6,16 +6,18 @@ interface LostItemDetailsProps {
   image: any;
   date: string;
   description: string;
+  onBack: () => void;
 }
 
 export function LostItemDetails({
   image,
   date,
   description,
+  onBack,
 }: LostItemDetailsProps) {
   return (
     <View style={styles.container}>
-      <Header title="Itens perdidos" onBack={() => {}} />
+      <Header title="Itens perdidos" onBack={onBack} />
 
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Image
@@ -28,7 +30,6 @@ export function LostItemDetails({
 
         <InfoLostItem date={date} description={description} />
       </ScrollView>
-
     </View>
   );
 }
@@ -41,5 +42,11 @@ const styles = StyleSheet.create({
   scrollContent: {
     alignItems: "center",
     padding: 16,
+  },
+  image: {
+    width: "100%",
+    height: 300,
+    borderRadius: 8,
+    marginBottom: 16,
   },
 });

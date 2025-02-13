@@ -28,11 +28,10 @@ export function LostItems() {
     {
       id: 2,
       image: require("../../../assets/images/lost-items/image2.png"),
-      date: "06/02/2025",
+      date: "08/02/2025",
       description:
-        "Esquecido na lavadora 2 eu achei quando fui lavar minha roupa.",
+        "Achei na secadora 4, deixei em cima do balcão.", 
     },
-    // ... outros itens
   ];
 
   return (
@@ -50,10 +49,14 @@ export function LostItems() {
               key={item.id}
               style={styles.imageContainer}
               onPress={() =>
-                navigation.navigate("LostItemDetails", {
-                  image: item.image,
-                  date: item.date,
-                  description: item.description,
+                router.push({
+                  pathname: "/(extras)/lost-items/[id]",
+                  params: {
+                    id: item.id,
+                    image: item.image,
+                    date: item.date,
+                    description: item.description,
+                  },
                 })
               }
             >

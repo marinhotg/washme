@@ -14,7 +14,7 @@ export function Settings() {
   return (
     <View style={styles.container}>
       <Header 
-        title="Configurações" 
+        title="Configurações da lavanderia" 
       />
 
       <ScrollView style={styles.content}>
