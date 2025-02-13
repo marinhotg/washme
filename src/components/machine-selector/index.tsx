@@ -3,12 +3,15 @@ import { Ionicons } from "@expo/vector-icons";
 import { DateInput } from "../date-input";
 import { TimeInput } from "../time-input";
 import { useState } from "react";
+import { CustomModal } from "../custom-modal";
 
 interface MachineSelectorProps {
   title: string;
   type: "washer" | "dryer";
   count: number;
   selectedMachines: number[];
+  onSearch: () => void;
+  onDateTimeChange: () => void;
 }
 
 export function MachineSelector({
@@ -16,9 +19,13 @@ export function MachineSelector({
   type,
   count,
   selectedMachines,
+  onSearch,
+  onDateTimeChange,
 }: MachineSelectorProps) {
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedMachine, setSelectedMachine] = useState<number | null>(null);
 
   const getImage = (index: number) => {
     const isSelected = selectedMachines.includes(index);
@@ -32,28 +39,78 @@ export function MachineSelector({
       : require("../../../assets/images/dryer-off.png");
   };
 
+  const handleDateChange = (newDate: Date) => {
+    setDate(newDate);
+    onDateTimeChange();
+  };
+
+  const handleTimeChange = (newTime: Date) => {
+    setTime(newTime);
+    onDateTimeChange();
+  };
+
+  const handleMachinePress = (index: number) => {
+    if (!selectedMachines.includes(index)) {
+      return;
+    }
+    setSelectedMachine(index);
+    setModalVisible(true);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
 
       <View style={styles.inputContainer}>
-        <DateInput value={date} onChange={setDate} />
-        <TimeInput value={time} onChange={setTime} />
-        <TouchableOpacity style={styles.searchButton}>
+        <DateInput value={date} onChange={handleDateChange} />
+        <TimeInput value={time} onChange={handleTimeChange} />
+        <TouchableOpacity style={styles.searchButton} onPress={onSearch}>
           <Ionicons name="search" size={24} color="#276672" />
         </TouchableOpacity>
       </View>
 
       <View style={styles.machinesContainer}>
         {Array.from({ length: count }).map((_, index) => (
-          <Image
+          <TouchableOpacity
             key={index}
-            source={getImage(index)}
-            style={styles.machineIcon}
-            resizeMode="contain"
-          />
+            onPress={() => handleMachinePress(index)}
+            activeOpacity={0.7}
+            style={styles.machineButton}
+          >
+            <Image
+              source={getImage(index)}
+              style={styles.machineIcon}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
         ))}
       </View>
+
+      <CustomModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+        title="Reservar máquina?"
+        description={
+          selectedMachine !== null
+            ? `${type === "washer" ? "Lavadora" : "Secadora"} ${
+                selectedMachine + 1
+              }
+        ${date.toLocaleDateString("pt-BR", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        })} ${time.toLocaleTimeString("pt-BR", {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false,
+              })}`
+            : ""
+        }
+        onConfirm={() => {
+          console.log("Confirmado!");
+          setModalVisible(false);
+        }}
+      />
     </View>
   );
 }
@@ -80,16 +137,22 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-	machinesContainer: {
-		flexDirection: "row",
-		flexWrap: "wrap",
-		justifyContent: "center",
-		gap: 12,
-	},
-	
-	machineIcon: {
-		width: "30%",
-		maxWidth: 100,
-		aspectRatio: 1,
-	},
+  machinesContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: 12,
+  },
+  machineButton: {
+    width: "30%",
+    maxWidth: 100,
+    aspectRatio: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  machineIcon: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "contain",
+  },
 });

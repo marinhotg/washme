@@ -10,19 +10,23 @@ interface TimeInputProps {
 export function TimeInput({ value, onChange }: TimeInputProps) {
   const [show, setShow] = useState(false);
 
+  const formattedTime = value.toLocaleTimeString('pt-BR', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  });
+
   return (
     <>
       <TouchableOpacity style={styles.container} onPress={() => setShow(true)}>
-        <Text style={styles.text}>
-          {value.getHours().toString().padStart(2, "0")}:
-          {value.getMinutes().toString().padStart(2, "0")}
-        </Text>
+        <Text style={styles.text}>{formattedTime}</Text>
       </TouchableOpacity>
 
       {show && (
         <DateTimePicker
           value={value}
           mode="time"
+          is24Hour={true}
           onChange={(_, date) => {
             setShow(false);
             date && onChange(date);
@@ -47,6 +51,5 @@ const styles = StyleSheet.create({
   text: {
     color: "#64748B",
     fontSize: 16,
-    paddingHorizontal: 8,
   },
 });

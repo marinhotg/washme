@@ -25,7 +25,7 @@ export function ReservationCard({ type, number, date, time, onDelete }: Reservat
      </View>
 
      <TouchableOpacity onPress={onDelete}>
-       <Ionicons name="trash-outline" size={24} color="#276672" />
+       <Ionicons name="close" size={24} color="#276672" />
      </TouchableOpacity>
    </View>
  );

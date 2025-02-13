@@ -10,10 +10,16 @@ interface DateInputProps {
 export function DateInput({ value, onChange }: DateInputProps) {
   const [show, setShow] = useState(false);
 
+  const formattedDate = value.toLocaleDateString('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
+
   return (
     <>
       <TouchableOpacity style={styles.container} onPress={() => setShow(true)}>
-        <Text style={styles.text}>{value.toLocaleDateString()}</Text>
+        <Text style={styles.text}>{formattedDate}</Text>
       </TouchableOpacity>
 
       {show && (
