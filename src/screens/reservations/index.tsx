@@ -9,19 +9,18 @@ export function Reservations() {
     {
       id: 1,
       type: "Lavadora",
-      number: 1,
-      date: "25/10/2025",
-      time: "10:30",
+      number: 2,
+      date: "13/02/2025",
+      time: "16:30",
     },
     {
       id: 2,
       type: "Secadora",
-      number: 2,
-      date: "25/10/2025",
-      time: "10:30",
+      number: 3,
+      date: "13/02/2025",
+      time: "17:30",
     },
   ];
-
   return (
     <View style={styles.container}>
       <Header
@@ -47,7 +46,6 @@ export function Reservations() {
           ))}
         </View>
       </ScrollView>
-
     </View>
   );
 }

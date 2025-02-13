@@ -12,6 +12,7 @@ interface MachineSelectorProps {
   selectedMachines: number[];
   onSearch: () => void;
   onDateTimeChange: () => void;
+  onReservation: (type: "washer" | "dryer", machineIndex: number) => void;
 }
 
 export function MachineSelector({
@@ -21,6 +22,7 @@ export function MachineSelector({
   selectedMachines,
   onSearch,
   onDateTimeChange,
+  onReservation,
 }: MachineSelectorProps) {
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
@@ -95,11 +97,11 @@ export function MachineSelector({
             ? `${type === "washer" ? "Lavadora" : "Secadora"} ${
                 selectedMachine + 1
               }
-        ${date.toLocaleDateString("pt-BR", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-        })} ${time.toLocaleTimeString("pt-BR", {
+          ${date.toLocaleDateString("pt-BR", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          })} ${time.toLocaleTimeString("pt-BR", {
                 hour: "2-digit",
                 minute: "2-digit",
                 hour12: false,
@@ -107,7 +109,9 @@ export function MachineSelector({
             : ""
         }
         onConfirm={() => {
-          console.log("Confirmado!");
+          if (selectedMachine !== null) {
+            onReservation(type, selectedMachine);
+          }
           setModalVisible(false);
         }}
       />

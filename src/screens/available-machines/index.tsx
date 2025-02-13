@@ -38,6 +38,21 @@ export function AvailableMachines() {
     setSelectedDryers([]);
   };
 
+  const handleMachineReservation = (
+    type: "washer" | "dryer",
+    machineIndex: number
+  ) => {
+    if (type === "washer") {
+      setSelectedWashers((prev) =>
+        prev.filter((index) => index !== machineIndex)
+      );
+    } else {
+      setSelectedDryers((prev) =>
+        prev.filter((index) => index !== machineIndex)
+      );
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Header title="Máquinas disponíveis" />
@@ -51,6 +66,7 @@ export function AvailableMachines() {
             selectedMachines={selectedWashers}
             onSearch={handleWasherSearch}
             onDateTimeChange={handleWasherDateTimeChange}
+            onReservation={handleMachineReservation}
           />
 
           <MachineSelector
@@ -60,6 +76,7 @@ export function AvailableMachines() {
             selectedMachines={selectedDryers}
             onSearch={handleDryerSearch}
             onDateTimeChange={handleDryerDateTimeChange}
+            onReservation={handleMachineReservation}
           />
         </View>
       </ScrollView>
