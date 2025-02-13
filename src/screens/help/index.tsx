@@ -1,5 +1,6 @@
 import { View, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Header } from '../../components/header';
+import { router } from "expo-router";
 
 interface FAQ {
   question: string;
@@ -34,7 +35,7 @@ export function Help() {
     <View style={styles.container}>
       <Header 
         title="Ajuda" 
-        onBack={() => {}}
+        onBack={() => router.push("/(app)/more")}
       />
 
       <ScrollView style={styles.content}>

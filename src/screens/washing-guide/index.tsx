@@ -1,6 +1,7 @@
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { Header } from '../../components/header';
 import { InfoCard } from '../../components/info-card';
+import { router } from "expo-router";
 
 export function WashingGuide() {
   const guides = [
@@ -30,7 +31,7 @@ export function WashingGuide() {
     <View style={styles.container}>
       <Header 
         title="Guia de lavagem" 
-        onBack={() => {}}
+        onBack={() => router.push("/(app)/more")}
       />
 
       <ScrollView style={styles.content}>

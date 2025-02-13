@@ -10,7 +10,6 @@ export function AvailableMachines() {
     <View style={styles.container}>
       <Header 
         title="Máquinas disponíveis" 
-        onBack={() => {}}
       />
 
       <ScrollView style={styles.content}>

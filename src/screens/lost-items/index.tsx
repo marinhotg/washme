@@ -8,6 +8,7 @@ import {
 import { Header } from "../../components/header";
 import { Ionicons } from "@expo/vector-icons";
 import { ImageSourcePropType } from "react-native";
+import { router } from "expo-router";
 
 interface LostItem {
   id: number;
@@ -37,13 +38,9 @@ export function LostItems() {
   return (
     <View style={styles.container}>
       <Header
-        title="Itens perdidos"
-        onBack={() => {}}
-        rightIcon={
-          <TouchableOpacity onPress={() => console.log("Abrir câmera")}>
-            <Ionicons name="camera-outline" size={24} color="black" />
-          </TouchableOpacity>
-        }
+        title="Itens Perdidos"
+        showBackButton
+        onBack={() => router.push("/(app)/more")}
       />
 
       <ScrollView style={styles.content}>
@@ -73,7 +70,6 @@ export function LostItems() {
           ))}
         </View>
       </ScrollView>
-
     </View>
   );
 }

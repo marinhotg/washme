@@ -14,7 +14,6 @@ export function Settings() {
     <View style={styles.container}>
       <Header 
         title="Configurações" 
-        onBack={() => {}}
       />
 
       <ScrollView style={styles.content}>

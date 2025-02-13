@@ -25,7 +25,6 @@ export function Reservations() {
     <View style={styles.container}>
       <Header
         title="Minhas reservas"
-        onBack={() => {}}
         rightIcon={
           <TouchableOpacity onPress={() => console.log("Acessar histórico")}>
             <Ionicons name="time-outline" size={24} color="black" />
