@@ -1,12 +1,17 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 interface InfoLostItemProps {
   date: string;
   description: string;
+  onFound: () => void;
 }
 
-export function InfoLostItem({ date, description }: InfoLostItemProps) {
+export function InfoLostItem({
+  date,
+  description,
+  onFound,
+}: InfoLostItemProps) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>
@@ -14,7 +19,9 @@ export function InfoLostItem({ date, description }: InfoLostItemProps) {
         {"\n"}
         Descrição: {description}
       </Text>
-      <Ionicons name="checkmark-circle" size={24} color="#276672" />
+      <TouchableOpacity onPress={onFound}>
+        <Ionicons name="checkmark-circle" size={24} color="#276672" />
+      </TouchableOpacity>
     </View>
   );
 }

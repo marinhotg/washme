@@ -11,6 +11,7 @@ export default function LostItemDetailsPage() {
 
   return (
     <LostItemDetails
+      id={Number(params.id)}
       image={params.image}
       date={params.date}
       description={params.description}
