@@ -40,6 +40,11 @@ export function LostItems() {
         title="Itens Perdidos"
         showBackButton
         onBack={() => router.push("/(app)/more")}
+        rightIcon={
+          <TouchableOpacity onPress={() => router.push("/(extras)/report-lost")}>
+            <Ionicons name="camera" size={24} color="black" />
+          </TouchableOpacity>
+        }
       />
 
       <ScrollView style={styles.content}>

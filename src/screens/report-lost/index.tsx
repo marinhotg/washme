@@ -1,11 +1,12 @@
 import { View, StyleSheet, Image, TextInput } from "react-native";
 import { Header } from "../../components/header";
 import { Button } from "../../components/button";
+import { router } from "expo-router";
 
 export function ReportLostItem() {
   return (
     <View style={styles.container}>
-      <Header title="Reportar item perdido" onBack={() => {}} />
+      <Header title="Reportar item perdido" onBack={() => router.push("/(extras)/lost-items")} />
 
       <View style={styles.content}>
         <Image
@@ -25,7 +26,6 @@ export function ReportLostItem() {
 
         <Button title="Enviar" onPress={() => {}} />
       </View>
-
     </View>
   );
 }
