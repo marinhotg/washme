@@ -3,6 +3,7 @@ import { View, ScrollView, StyleSheet, TextInput } from 'react-native';
 import { Header } from '../../components/header';
 import { UserCard } from '../../components/user-card';
 import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 
 interface User {
   id: string;
@@ -36,7 +37,7 @@ export function Users() {
     <View style={styles.container}>
       <Header 
         title="Usuários" 
-        onBack={() => {}}
+        onBack={() => router.push("/(app)/settings")}
       />
 
       <View style={styles.searchContainer}>

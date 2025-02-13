@@ -1,6 +1,7 @@
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { Header } from '../../components/header';
 import { HistoryCard } from '../../components/history-card';
+import { router } from 'expo-router';
 
 export function History() {
   const historyItems = [
@@ -24,7 +25,7 @@ export function History() {
     <View style={styles.container}>
       <Header 
         title="Histórico" 
-        onBack={() => {}}
+        onBack={() => router.push("/(app)/reservations")}
       />
       
       <ScrollView style={styles.content}>

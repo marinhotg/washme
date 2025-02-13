@@ -4,6 +4,7 @@ import { Input } from '../../components/input';
 import { Link } from '../../components/link';
 import { Button } from '../../components/button';
 import { Select } from '../../components/select';
+import { router } from 'expo-router';
 
 export function Settings() {
   const unavailableMachines = [
@@ -20,7 +21,7 @@ export function Settings() {
         <View style={styles.fields}>
           <Link 
             title="Usuários"
-            onPress={() => {}}
+            onPress={() => router.push('/(extras)/users')}
           />
 
           <Link 

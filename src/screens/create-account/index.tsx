@@ -5,11 +5,12 @@ import { Button } from "../../components/button";
 import { Link } from "../../components/link";
 import { TermsText } from "../../components/terms-text";
 import { PageLogoComponent } from "../../components/page-logo";
+import { router } from "expo-router";
 
 export function CreateAccount() {
   return (
     <View style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
-      <Header title="Criar conta" onBack={() => {}} />
+      <Header title="Criar conta" onBack={() => router.push("/(auth)/login")} />
 
       <View style={{ alignItems: "center", marginTop: 24 }}>
         <PageLogoComponent />
@@ -21,7 +22,7 @@ export function CreateAccount() {
         <Input label="Telefone" placeholder="Telefone" />
         <Input label="Senha" placeholder="Senha" secureTextEntry />
 
-        <Link title="Já possuo uma conta" onPress={() => {}} />
+        <Link title="Já possuo uma conta" onPress={() => router.push("/(auth)/login")} />
 
         <TermsText
           onPressTerms={() => console.log("Abrir termos de serviço")}
