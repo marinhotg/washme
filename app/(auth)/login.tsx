@@ -1,2 +1,4 @@
 import { Login } from '../../src/screens/login';
-export default Login;
+export default function LoginPage() {
+  return <Login />;
+}

@@ -1,8 +1,15 @@
 import { Tabs } from "expo-router/tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
+import { useAuth } from "../../src/contexts/auth";
+import { Redirect } from "expo-router";
 
 export default function AppLayout() {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <Redirect href="/(auth)/login" />;
+  }
   return (
     <Tabs
       screenOptions={{
@@ -25,7 +32,9 @@ export default function AppLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          tabBarButton: (props) => <TouchableOpacity {...props} activeOpacity={1} />,
+          tabBarButton: (props) => (
+            <TouchableOpacity {...props} activeOpacity={1} />
+          ),
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? "home" : "home-outline"}
@@ -38,7 +47,9 @@ export default function AppLayout() {
       <Tabs.Screen
         name="reservations"
         options={{
-          tabBarButton: (props) => <TouchableOpacity {...props} activeOpacity={1} />,
+          tabBarButton: (props) => (
+            <TouchableOpacity {...props} activeOpacity={1} />
+          ),
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? "calendar" : "calendar-outline"}
@@ -51,7 +62,9 @@ export default function AppLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          tabBarButton: (props) => <TouchableOpacity {...props} activeOpacity={1} />,
+          tabBarButton: (props) => (
+            <TouchableOpacity {...props} activeOpacity={1} />
+          ),
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? "person" : "person-outline"}
@@ -64,7 +77,9 @@ export default function AppLayout() {
       <Tabs.Screen
         name="settings"
         options={{
-          tabBarButton: (props) => <TouchableOpacity {...props} activeOpacity={1} />,
+          tabBarButton: (props) => (
+            <TouchableOpacity {...props} activeOpacity={1} />
+          ),
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? "settings" : "settings-outline"}
@@ -77,10 +92,14 @@ export default function AppLayout() {
       <Tabs.Screen
         name="more"
         options={{
-          tabBarButton: (props) => <TouchableOpacity {...props} activeOpacity={1} />,
+          tabBarButton: (props) => (
+            <TouchableOpacity {...props} activeOpacity={1} />
+          ),
           tabBarIcon: ({ focused }) => (
             <Ionicons
-              name={focused ? "ellipsis-horizontal" : "ellipsis-horizontal-outline"}
+              name={
+                focused ? "ellipsis-horizontal" : "ellipsis-horizontal-outline"
+              }
               size={focused ? 30 : 26}
               color={focused ? "#276672" : "#000000"}
             />
