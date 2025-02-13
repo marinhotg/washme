@@ -1,6 +1,5 @@
 import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 import { Header } from '../../components/header';
-import { BottomMenu } from '../../components/bottom-menu';
 
 interface MenuOption {
  id: number;
@@ -70,10 +69,6 @@ export function MoreOptions() {
        </View>
      </ScrollView>
 
-     <BottomMenu 
-       currentRoute="more"
-       onPress={() => {}}
-     />
    </View>
  );
 }

@@ -1,7 +1,6 @@
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { Header } from '../../components/header';
 import { InfoCard } from '../../components/info-card';
-import { BottomMenu } from '../../components/bottom-menu';
 
 export function WashingGuide() {
   const guides = [
@@ -46,10 +45,6 @@ export function WashingGuide() {
         </View>
       </ScrollView>
 
-      <BottomMenu 
-        currentRoute="more"
-        onPress={() => {}}
-      />
     </View>
   );
 }

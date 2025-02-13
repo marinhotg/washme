@@ -3,7 +3,6 @@ import { Header } from '../../components/header';
 import { Input } from '../../components/input';
 import { Button } from '../../components/button';
 import { Link } from '../../components/link';
-import { BottomMenu } from '../../components/bottom-menu';
 
 export function Profile() {
  return (
@@ -60,10 +59,6 @@ export function Profile() {
        </View>
      </ScrollView>
 
-     <BottomMenu 
-       currentRoute="profile"
-       onPress={() => {}}
-     />
    </View>
  );
 }

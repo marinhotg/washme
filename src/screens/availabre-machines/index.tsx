@@ -1,7 +1,6 @@
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { Header } from '../../components/header';
 import { MachineSelector } from '../../components/machine-selector';
-import { BottomMenu } from '../../components/bottom-menu';
 
 export function AvailableMachines() {
   const selectedWashers = [0, 2, 4];
@@ -32,10 +31,6 @@ export function AvailableMachines() {
         </View>
       </ScrollView>
 
-      <BottomMenu 
-        currentRoute="calendar"
-        onPress={() => {}}
-      />
     </View>
   );
 }

@@ -6,7 +6,6 @@ import {
   Image,
 } from "react-native";
 import { Header } from "../../components/header";
-import { BottomMenu } from "../../components/bottom-menu";
 import { Ionicons } from "@expo/vector-icons";
 import { ImageSourcePropType } from "react-native";
 
@@ -75,7 +74,6 @@ export function LostItems() {
         </View>
       </ScrollView>
 
-      <BottomMenu currentRoute="more" onPress={() => {}} />
     </View>
   );
 }

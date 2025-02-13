@@ -1,6 +1,5 @@
 import { View, StyleSheet, Image, ScrollView } from "react-native";
 import { Header } from "../../components/header";
-import { BottomMenu } from "../../components/bottom-menu";
 import { InfoLostItem } from "../../components/info-lost-item";
 
 interface LostItemDetailsProps {
@@ -30,7 +29,6 @@ export function LostItemDetails({
         <InfoLostItem date={date} description={description} />
       </ScrollView>
 
-      <BottomMenu currentRoute="more" onPress={() => {}} />
     </View>
   );
 }

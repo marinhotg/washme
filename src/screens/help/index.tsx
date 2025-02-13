@@ -1,6 +1,5 @@
 import { View, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Header } from '../../components/header';
-import { BottomMenu } from '../../components/bottom-menu';
 
 interface FAQ {
   question: string;
@@ -68,11 +67,6 @@ export function Help() {
           </Text>
         </View>
       </ScrollView>
-
-      <BottomMenu 
-        currentRoute="more"
-        onPress={() => {}}
-      />
     </View>
   );
 }

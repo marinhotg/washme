@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { View, ScrollView, StyleSheet, Text } from "react-native";
-import { BottomMenu } from "../../components/bottom-menu";
 import { Button } from "../../components/button";
 import { Header } from "../../components/header";
 import { Input } from "../../components/input";
@@ -104,7 +103,6 @@ export function LaundryRegistration() {
         </View>
       </ScrollView>
 
-      <BottomMenu currentRoute="home" onPress={() => {}} />
     </View>
   );
 }

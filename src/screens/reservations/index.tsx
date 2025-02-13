@@ -1,7 +1,6 @@
 import { View, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
 import { Header } from "../../components/header";
 import { ReservationCard } from "../../components/reservation-card";
-import { BottomMenu } from "../../components/bottom-menu";
 import { Ionicons } from "@expo/vector-icons";
 
 export function Reservations() {
@@ -49,7 +48,6 @@ export function Reservations() {
         </View>
       </ScrollView>
 
-      <BottomMenu currentRoute="calendar" onPress={() => {}} />
     </View>
   );
 }

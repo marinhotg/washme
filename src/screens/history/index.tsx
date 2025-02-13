@@ -1,7 +1,6 @@
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { Header } from '../../components/header';
 import { HistoryCard } from '../../components/history-card';
-import { BottomMenu } from '../../components/bottom-menu';
 
 export function History() {
   const historyItems = [
@@ -43,10 +42,6 @@ export function History() {
         </View>
       </ScrollView>
 
-      <BottomMenu 
-        currentRoute="calendar"
-        onPress={() => {}}
-      />
     </View>
   );
 }

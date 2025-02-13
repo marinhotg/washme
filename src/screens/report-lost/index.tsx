@@ -1,7 +1,6 @@
 import { View, StyleSheet, Image, TextInput } from "react-native";
 import { Header } from "../../components/header";
 import { Button } from "../../components/button";
-import { BottomMenu } from "../../components/bottom-menu";
 
 export function ReportLostItem() {
   return (
@@ -27,7 +26,6 @@ export function ReportLostItem() {
         <Button title="Enviar" onPress={() => {}} />
       </View>
 
-      <BottomMenu currentRoute="more" onPress={() => {}} />
     </View>
   );
 }

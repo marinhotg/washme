@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { View, ScrollView, StyleSheet, TextInput } from 'react-native';
 import { Header } from '../../components/header';
 import { UserCard } from '../../components/user-card';
-import { BottomMenu } from '../../components/bottom-menu';
 import { Ionicons } from '@expo/vector-icons';
 
 interface User {
@@ -68,10 +67,6 @@ export function Users() {
         </View>
       </ScrollView>
 
-      <BottomMenu 
-        currentRoute="settings"
-        onPress={() => {}}
-      />
     </View>
   );
 }

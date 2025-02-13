@@ -4,7 +4,6 @@ import { Input } from '../../components/input';
 import { Link } from '../../components/link';
 import { Button } from '../../components/button';
 import { Select } from '../../components/select';
-import { BottomMenu } from '../../components/bottom-menu';
 
 export function Settings() {
   const unavailableMachines = [
@@ -86,10 +85,6 @@ export function Settings() {
         </View>
       </ScrollView>
 
-      <BottomMenu 
-        currentRoute="settings"
-        onPress={() => {}}
-      />
     </View>
   );
 }
